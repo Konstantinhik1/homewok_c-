@@ -1,0 +1,85 @@
+
+// Задача 1: Задайте двумерный массив символов (тип char [,]).
+// Создать строку из символов этого массива.
+
+// char[,] elements = new char[,]
+// { 
+//     { 'A', 'B', 'C' },
+//     { 'D', 'E', 'F' },
+//     { 'G', 'H', 'I' }
+// };
+
+// string str = "";
+
+// void GetStringFromArrayChar()
+// {
+//     for (int i = 0; i < elements.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < elements.GetLength(1); j++)
+//     {
+//         str = str+elements[i,j];
+//     }
+//     }
+// }
+
+// GetStringFromArrayChar();
+// System.Console.WriteLine(str);
+
+
+
+
+
+
+// Задача 2: Задайте строку,
+// содержащую латинские буквы в обоих регистрах.
+//  Сформируйте строку, в которой все заглавные буквы заменены на строчные.
+
+
+// using System.Text;
+
+// string input = Console.ReadLine();
+// string converted = ConvertToLower(input);
+// Console.WriteLine(converted); 
+
+// string ConvertToLower(string input)
+// {
+//     StringBuilder result = new StringBuilder();
+
+//     foreach (char c in input)
+//     {
+//         if (char.IsUpper(c))
+//         {
+//             result.Append(char.ToLower(c));
+//         }
+//         else
+//         {
+//             result.Append(c);
+//         }
+//     }
+
+//     return result.ToString();
+// }
+
+
+
+
+
+
+// Задача 3: Задайте произвольную строку.
+// Выясните, является ли она палиндромом.
+
+class Program
+{
+    static void Main()
+    {
+        string input = "мем";
+        bool isPalindrome = IsPalindrome(input);
+        Console.WriteLine(isPalindrome ? "Да" : "Нет");
+    }
+
+    public static bool IsPalindrome(string str)
+    {
+        string normalized = new string(str.Where(char.IsLetterOrDigit).ToArray()).ToLower();
+        return normalized.SequenceEqual(normalized.Reverse());
+    }
+}
